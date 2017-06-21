@@ -31,7 +31,7 @@ def github():
     return "200 OK"
 
 
-@app.route("/telegram", methods=["GET", "POST"])
+@app.route("/telegram")
 def telegram():
     send("I recived a querry")
     return "200 OK"
