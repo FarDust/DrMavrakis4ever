@@ -8,10 +8,9 @@ with open("telegram_token", "r") as file:
 URL_TEL_BOT = "https://api.telegram.org/bot{token}".format(**{"token": T_TOKEN})
 
 requests.get(URL_TEL_BOT + "/sendMessage", params={"chat_id": 413925182, "text": "new_deploy"}).json()
-request.get(URL_TEL_BOT + "/setWebhook",params={"url":"https://drmavrakis4ever.herokuapp.com/telegram"})
+request.get(URL_TEL_BOT + "/setWebhook", params={"url": "https://drmavrakis4ever.herokuapp.com/telegram"})
 
 app = flask.Flask(__name__)
-
 
 
 @app.route("/")
@@ -31,10 +30,11 @@ def github():
     send("GitHub say something")
     return "200 OK"
 
-@app.route("/telegram", methods=["POST"])
+
+@app.route("/telegram", methods=["GET", "POST"])
 def telegram():
     send("I recived a querry")
     data = request.json
-    print(str(data))
     return "200 OK"
+
 # app.run(port="")
