@@ -1,5 +1,6 @@
 import flask
 import requests
+from flask import request
 
 with open("telegram_token", "r") as file:
     T_TOKEN = file.read().strip()
@@ -15,14 +16,16 @@ app = flask.Flask(__name__)
 def index():
     return "<h1>I'm a bot</h1>"
 
+
 @app.route("/bot/<message>")
 def telegram(message):
     req = requests.get(URL_TEL_BOT + "/sendMessage", params={"chat_id": 413925182, "text": message})
     return "<p>{}</p>".format(req.status_code)
 
-@app.route("/payload/<load>")
-def github(load):
-    print(type(load))
-    print(load)
+
+@app.route("/payload", methods=["POST"])
+def github():
+    data = request.json
+    print(str(data))
 
 # app.run(port="")
