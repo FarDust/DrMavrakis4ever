@@ -1,5 +1,5 @@
-import app
+from app import app
 
 
-app.app.run()
+app.run(debug=True)
 
