@@ -9,7 +9,7 @@ URL_TEL_BOT = "https://api.telegram.org/bot{token}".format(**{"token": T_TOKEN})
 
 requests.get(URL_TEL_BOT + "/sendMessage", params={"chat_id": 413925182, "text": "new_deploy"}).json()
 requests.get(URL_TEL_BOT + "/setWebhook", params={"url": "https://drmavrakis4ever.herokuapp.com/telegram",
-                                                  "allowed_updates": ["bot_command"]})
+                                                  "allowed_updates": ["message"]})
 
 app = flask.Flask(__name__)
 
@@ -35,8 +35,11 @@ def github():
 @app.route("/telegram", methods =["POST"])
 def telegram():
     data = request.json
-    data['message']['from']
-    send("I recived a querry")
+    if 'entities' in data['message']:
+        from_data = data['message']['from']
+        chat_data = data['message']['chat']
+        text = data['message']['text']
+        send("I recived a querry")
     return "200 OK"
 
 # app.run(port="")
