@@ -17,7 +17,7 @@ def index():
 
 @app.route("/bot/<message>")
 def telegram(message):
-    req = requests.get(URL_TEL_BOT + "/sendMessage", params={"chat_id": 413925182, "text": load})
+    req = requests.get(URL_TEL_BOT + "/sendMessage", params={"chat_id": 413925182, "text": message})
     return "<p>{}</p>".format(req.status_code)
 
 @app.route("/payload/<load>")
