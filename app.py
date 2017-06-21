@@ -11,6 +11,7 @@ URL_GIT = "https://api.github.com/user"
 URL_GOOGLE = "http://www.google.com/search?"
 
 print(requests.get(URL_TEL_BOT + "/GetUpdates").json())
+requests.get(URL_TEL_BOT + "/sendMessage", params={"chat_id": 413925182, "text": "new_deploy"}).json()
 app = flask.Flask(__name__)
 
 
