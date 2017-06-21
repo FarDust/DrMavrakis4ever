@@ -34,7 +34,6 @@ def github():
 @app.route("/telegram", methods=["GET", "POST"])
 def telegram():
     send("I recived a querry")
-    data = request.json
     return "200 OK"
 
 # app.run(port="")
