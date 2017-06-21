@@ -22,6 +22,7 @@ def telegram(message):
 
 @app.route("/payload/<load>")
 def github(load):
+    print(type(load))
     print(load)
 
 # app.run(port="")
