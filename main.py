@@ -15,10 +15,13 @@ app = flask.Flask(__name__)
 def index():
     return "<h1>I'm a bot</h1>"
 
+@app.route("/bot/<message>")
+def telegram(message):
+    req = requests.get(URL_TEL_BOT + "/sendMessage", params={"chat_id": 413925182, "text": load})
+    return "<p>{}</p>".format(req.status_code)
 
 @app.route("/payload/<load>")
 def github(load):
-    req = requests.get(URL_TEL_BOT + "/sendMessage", params={"chat_id": 413925182, "text": load})
-    return req.status_code
+    print(load)
 
 # app.run(port="")
