@@ -20,5 +20,5 @@ def index():
 def github(load):
     return requests.get(URL_TEL_BOT + "/sendMessage", params={"chat_id": 413925182, "text": load}).json()
 
-app.run()
+#app.run(port="")
 
