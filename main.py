@@ -26,6 +26,7 @@ def telegram(message):
 @app.route("/payload", methods=["POST"])
 def github():
     data = request.json
+    telegram("GitHub say something")
     return "200 OK"
 
 # app.run(port="")
