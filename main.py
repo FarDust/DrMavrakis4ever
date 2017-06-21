@@ -33,6 +33,7 @@ def github():
 
 @app.route("/telegram", methods=["POST"])
 def telegram():
+    send("I recived a querry")
     data = request.json
     print(str(data))
     return "200 OK"
