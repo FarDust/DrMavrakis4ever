@@ -1,5 +1,6 @@
 import flask
 import requests
+import re
 from flask import request
 
 with open("telegram_token", "r") as file:
@@ -20,7 +21,7 @@ def index():
 
 
 @app.route("/admin/<message>")
-def send(message):
+def admin(message):
     req = requests.get(URL_TEL_BOT + "/sendMessage", params={"chat_id": 413925182, "text": message})
     return "<p>{}</p>".format(req.status_code)
 
@@ -28,18 +29,20 @@ def send(message):
 @app.route("/payload", methods=["POST"])
 def github():
     data = request.json
-    send("GitHub say something")
+    admin("GitHub say something")
     return "200 OK"
 
 
-@app.route("/telegram", methods =["POST"])
+@app.route("/telegram", methods=["POST"])
 def telegram():
     data = request.json
     if 'entities' in data['message']:
         from_data = data['message']['from']
         chat_data = data['message']['chat']
         text = data['message']['text']
-        send("I recived a querry")
+        if bool(re.match("\/(get #[0-9]+|post #[0-9]+ \*[\w \n]+|label #[0-9]+ [\w ]+|close #[0-9]+)", text)):
+            admin("I receive a command")
+
     return "200 OK"
 
 # app.run(port="")
