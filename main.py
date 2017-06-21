@@ -12,4 +12,4 @@ URL_GOOGLE = "http://www.google.com/search?"
 
 print(requests.get(URL_TEL_BOT + "/getMe").json())
 print(requests.get(URL_GOOGLE, params={"q": "chile"}))
-print(requests.get(URL_GIT, auth=G_TOKEN).url)
+#print(requests.get(URL_GIT, auth=G_TOKEN).url)
