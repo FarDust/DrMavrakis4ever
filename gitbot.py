@@ -25,7 +25,7 @@ def analize(response: dict):
                 print(GOO_CX)
                 return google_response
             else:
-                print("dude")
+                return "dude"
         else:
-            print("nobody")
+            return "nobody"
 
