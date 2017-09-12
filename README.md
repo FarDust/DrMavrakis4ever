@@ -1,3 +1,8 @@
+
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
+[![GitHub tag](https://img.shields.io/badge/version-v1.0--beta-yellow.svg)]()
+
+
 #Bienvenidos a @the\_void\_bot
 
  * **Void** es un simple bot que se come las conversaciones y simplemente responde a ciertos comandos específicos. Por lo cual solo existen 5 comandos para interaccionar con el:
