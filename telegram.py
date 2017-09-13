@@ -11,7 +11,7 @@ git_user = ""
 git_repo = ""
 	
 URL_TEL_BOT = "https://api.telegram.org/bot{token}".format(**{"token": T_TOKEN})
-URL_GIT = "https://api.github.com/repos/{user}/{repo}/issues/{}".format(**{"user": git_user,"repo": git_repo})
+URL_GIT = "https://api.github.com/repos/{user}/{repo}/issues/".format(**{"user": git_user,"repo": git_repo})+"{}"
 
 
 def get_issue(number, chat):
