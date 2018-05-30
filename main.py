@@ -77,13 +77,12 @@ def telegram():
     return "200 OK"
 
 def regex_match_execute(text, chat_data):
-    if re.match("\/get #[0-9]+", text):
+    if re.match("\/(get|close) #[0-9]+", text):
         quarry = text[text.index("#") + 1:].strip()
-        get_issue(quarry, chat_data)
-    elif re.match("\/close #[0-9]+", text):
-        quarry = text[text.index("#") + 1:].strip()
-        close_issue(quarry, chat_data)
-        pass
+        if re.match("\/get #[0-9]+", text):
+            get_issue(quarry, chat_data)
+        elif re.match("\/close #[0-9]+", text):
+            close_issue(quarry, chat_data)
     elif re.match("\/label #[0-9]+ [\w]+", text):
         text = text.split(" ")
         label_issue(text[1][1:], text[2], chat_data)
